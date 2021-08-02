@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package loyalty;
+
+import "google/protobuf/timestamp.proto";
+
+service User {
+  rpc GetLoyaltyByUserID(UserID) returns (UserLoyalty) {}
+}
+
+message UserID { uint64 UserID = 1; }
+
+message UserLoyalty {
+  uint64 ID = 1;
+  uint64 UserID = 2;
+  int64 Point = 3;
+  int ExperiencePoint = 4;
+  google.protobuf.Timestamp TimeWindow = 5;
+  int ClassID = 6;
+  google.protobuf.Timestamp CreatedTime = 7;
+  uint64 CreatedBy = 8;
+  google.protobuf.Timestamp UpdatedTime = 9;
+  uint64 UpdatedBy = 10;
+  google.protobuf.Timestamp RemovedTime = 11;
+  uint64 RemovedBy = 12;
+  int IsActive = 13;
+}
